@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Gold Rate Display</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            color: gold;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .container {
+            padding-top: 50px;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 40px;
+        }
+
+        input {
+            padding: 15px;
+            font-size: 20px;
+            width: 250px;
+            text-align: center;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 18px;
+            background: gold;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .rates {
+            margin-top: 50px;
+            font-size: 28px;
+            line-height: 55px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>SRK JEWELLERS</h1>
+
+    <input type="number" id="rate24k" placeholder="Enter 24K Rate">
+
+    <button onclick="calculate()">UPDATE RATE</button>
+
+    <div class="rates" id="output">
+        Enter Rate to Display 😎
+    </div>
+
+</div>
+
+<script>
+
+function calculate() {
+
+    let rate24k = parseFloat(document.getElementById("rate24k").value);
+
+    if (!rate24k) {
+        alert("Enter Rate First");
+        return;
+    }
+
+    let rate22k = rate24k * (22/24);
+    let rate20k = rate24k * (20/24);
+    let rate18k = rate24k * (18/24);
+    let rate14k = rate24k * (14/24);
+
+    document.getElementById("output").innerHTML =
+        "24K Rate : ₹ " + rate24k.toFixed(2) + "<br>" +
+        "22K Rate : ₹ " + rate22k.toFixed(2) + "<br>" +
+        "20K Rate : ₹ " + rate20k.toFixed(2) + "<br>" +
+        "18K Rate : ₹ " + rate18k.toFixed(2) + "<br>" +
+        "14K Rate : ₹ " + rate14k.toFixed(2);
+
+}
+
+</script>
+
+</body>
+</html>
